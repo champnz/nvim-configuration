@@ -8,6 +8,13 @@ vim.wo.wrap = false
 if vim.g.neovide then
     vim.o.guifont = "JetBrains_Mono:h11"
     vim.g.neovide_transparency = 0.85
+
+    vim.keymap.set('n', '<C-f>',
+	function()
+	    vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
+	end,
+	{ noremap = true, silent = true }
+    )
 end
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
