@@ -25,15 +25,45 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
+	'stevearc/overseer.nvim',
+	config = function()
+	    require('overseer').setup()
+
+	    vim.keymap.set('n', '<C-o>', "<cmd>OverseerToggle<CR>", {
+		noremap = true,
+		silent = true
+	    })
+	    vim.keymap.set('n', '<C-r>', "<cmd>OverseerRun<CR>", {
+		noremap = true,
+		silent = true
+	    })
+	end,
+	opts = {},
+    },
+    {
+	'stevearc/dressing.nvim',
+	opts = {},
+    },
+    {
+	'rcarriga/nvim-notify',
+	config = function()
+	    vim.notify = require("notify")
+	end,
+    },
+    {
 	'neoclide/coc.nvim',
 	branch = 'release',
 	config = function()
-	    vim.api.nvim_set_keymap('n', 'gd', "<Plug>(coc-definition)", { noremap = true, silent = true })
-	    vim.api.nvim_set_keymap('n', 'gy', "<Plug>(coc-type-definition)", { noremap = true, silent = true })
-	    vim.api.nvim_set_keymap('n', 'gi', "<Plug>(coc-implementation)", { noremap = true, silent = true })
-	    vim.api.nvim_set_keymap('n', 'gr', "<Plug>(coc-references)", { noremap = true, silent = true })
+	    vim.keymap.set('n', 'gd', "<Plug>(coc-definition)", { noremap = true, silent = true })
+	    vim.keymap.set('n', 'gy', "<Plug>(coc-type-definition)", { noremap = true, silent = true })
+	    vim.keymap.set('n', 'gi', "<Plug>(coc-implementation)", { noremap = true, silent = true })
+	    vim.keymap.set('n', 'gr', "<Plug>(coc-references)", { noremap = true, silent = true })
 
 	    --vim.api.nvim_set_keymap('n', 'K',)
+	    --vim.api.nvim_set_keymap('n', '<C-f>', '<cmd>:exe "w !rustfmt" . "--edition 2015" . " > /dev/null 2>&1"<CR>', {
+		--noremap = true,
+		--silent = true
+	    --})
 	end,
     },
     {
@@ -131,6 +161,8 @@ require("lazy").setup({
 		extensions = {
 		    'lazy',
 		    'nvim-tree',
+		    'overseer',
+		    'toggleterm'
 		}
 	    })
 	end,
@@ -151,7 +183,7 @@ require("lazy").setup({
 	config = function()
 	    require('toggleterm').setup()
 
-	    vim.api.nvim_set_keymap('n', '<C-t>', '<cmd>ToggleTerm<CR>', { noremap = true })
+	    vim.keymap.set('n', '<C-t>', '<cmd>ToggleTerm<CR>', { noremap = true })
 	end,
     },
 })
