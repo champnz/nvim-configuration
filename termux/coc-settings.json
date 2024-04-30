@@ -1,0 +1,5 @@
+{
+  "rust-analyzer.server.path": "/data/data/com.termux/files/usr/bin/rust-analyzer",
+  "semanticTokens.enable": true,
+  "semanticTokens.filetypes": ["rust"]
+}
