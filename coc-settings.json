@@ -3,5 +3,7 @@
 		"$HOME",
 		"$HOME/.cargo/**",
 		"$HOME/.rustup/**"
-	]
+	],
+	"semanticTokens.enable": true,
+	"semanticTokens.filetypes": ["rust"]
 }

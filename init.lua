@@ -366,20 +366,6 @@ require("lazy").setup({
 	    })
 	end,
     },
-    {
-	"nvim-treesitter/nvim-treesitter",
-	build = ":TSUpdate",
-	config = function()
-	    local configs = require("nvim-treesitter.configs")
-
-	    configs.setup({
-		ensure_installed = { "c", "cpp", "rust", "lua", "vim", "json" },
-		sync_install = false,
-		highlight = { enable = true },
-		indent = { enable = true },
-	    })
-	end,
-    },
 })
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
