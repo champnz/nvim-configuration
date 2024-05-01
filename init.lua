@@ -5,11 +5,13 @@ vim.opt.termguicolors = true
 
 vim.wo.wrap = false
 
+local keyset = vim.keymap.set
+
 if vim.g.neovide then
     vim.o.guifont = "JetBrains_Mono:h11"
     vim.g.neovide_transparency = 0.85
 
-    vim.keymap.set('n', '<F11>',
+    keyset('n', '<F11>',
 	function()
 	    vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
 	end,
@@ -36,11 +38,11 @@ require("lazy").setup({
 	config = function()
 	    require('overseer').setup()
 
-	    vim.keymap.set('n', '<C-o>', "<cmd>OverseerToggle<CR>", {
+	    keyset('n', '<C-o>', "<cmd>OverseerToggle<CR>", {
 		noremap = true,
 		silent = true
 	    })
-	    vim.keymap.set('n', '<C-r>', "<cmd>OverseerRun<CR>", {
+	    keyset('n', '<C-r>', "<cmd>OverseerRun<CR>", {
 		noremap = true,
 		silent = true
 	    })
@@ -73,7 +75,6 @@ require("lazy").setup({
 	    -- diagnostics appeared/became resolved
 	    vim.opt.signcolumn = "yes"
 
-	    local keyset = vim.keymap.set
 	    -- Autocomplete
 	    function _G.check_back_space()
 		local col = vim.fn.col('.') - 1
@@ -240,7 +241,7 @@ require("lazy").setup({
 	    keyset("n", "<space>p", ":<C-u>CocListResume<cr>", opts)
 
 	    -- Custom
-	    keyset('n', '<A-F>', "<cmd>Format<CR>", { noremap = true, silent = true})
+	    keyset('n', '<A-F>', "<cmd>Format<CR>", { noremap = true, silent = true })
 	end,
     },
     {
@@ -255,7 +256,7 @@ require("lazy").setup({
 
 	    local api = require "nvim-tree.api"
 
-	    vim.keymap.set('n', '<F2>', api.tree.toggle)
+	    keyset('n', '<F2>', api.tree.toggle)
 	end,
     },
     {
@@ -360,7 +361,7 @@ require("lazy").setup({
 	config = function()
 	    require('toggleterm').setup()
 
-	    vim.keymap.set('n', '<C-t>', '<cmd>ToggleTerm<CR>', {
+	    keyset('n', '<C-t>', '<cmd>ToggleTerm<CR>', {
 		noremap = true,
 		silent = true
 	    })
