@@ -5,6 +5,14 @@ Plugin.config = function()
 		color_icons = true;
 		default = true;
 		strict = true;
+		override_by_extension = {
+			["rs"] = {
+				icon = "",
+				color = "#dea584",
+				cterm_color = "216",
+				name = "Rs",
+			}
+		};
 	})
 end
 
