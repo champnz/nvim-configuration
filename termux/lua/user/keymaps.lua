@@ -1,0 +1,5 @@
+vim.keymap.set('n', '<C-n>', require('nvim-tree.api').tree.toggle)
+vim.keymap.set('n', '<A-F>', "<cmd>Format<CR>", { noremap = true, silent = true })
+vim.keymap.set('n', '<C-o>', "<cmd>OverseerToggle<CR>", { noremap = true, silent = true })
+vim.keymap.set('n', '<C-r>', "<cmd>OverseerRun<CR>", { noremap = true, silent = true })
+vim.keymap.set('n', '<C-t>', '<cmd>ToggleTerm<CR>', { noremap = true, silent = true })
