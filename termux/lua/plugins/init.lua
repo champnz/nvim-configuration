@@ -9,6 +9,6 @@ local Plugins = {
 			vim.notify = require("notify")
 		end,
 	},
-})
+}
 
 return Plugins
