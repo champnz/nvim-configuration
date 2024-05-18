@@ -6,6 +6,6 @@ vim.opt.termguicolors = true
 vim.wo.wrap = false
 
 if vim.g.neovide then
-	vim.o.guifont = "JetBrains_Mono:h11"
+	vim.o.guifont = "JetBrainsMono_Nerd_Font:h11"
 	vim.g.neovide_transparency = 0.85
 end
