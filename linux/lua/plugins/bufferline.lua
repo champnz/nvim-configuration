@@ -1,6 +1,6 @@
-local Plugin = {'akinsho/bufferline.nvim'}
+local Plugin = { "akinsho/bufferline.nvim" }
 
-Plugin.dependencies = {'nvim-tree/nvim-web-devicons'}
+Plugin.dependencies = { "nvim-tree/nvim-web-devicons" }
 
 Plugin.version = "*"
 

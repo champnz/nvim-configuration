@@ -1,6 +1,6 @@
-local Plugin = {'nvim-tree/nvim-tree.lua'}
+local Plugin = { "nvim-tree/nvim-tree.lua" }
 
-Plugin.dependencies = {'nvim-tree/nvim-web-devicons'}
+Plugin.dependencies = { "nvim-tree/nvim-web-devicons" }
 
 Plugin.version = "*"
 

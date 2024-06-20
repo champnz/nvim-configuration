@@ -1,10 +1,10 @@
 local Plugins = {
 	{
-		'stevearc/dressing.nvim',
+		"stevearc/dressing.nvim",
 		opts = {},
 	},
 	{
-		'rcarriga/nvim-notify',
+		"rcarriga/nvim-notify",
 		config = function()
 			vim.notify = require("notify")
 		end,

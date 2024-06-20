@@ -1,9 +1,9 @@
-local Plugin = {'akinsho/toggleterm.nvim'}
+local Plugin = { "akinsho/toggleterm.nvim" }
 
 Plugin.version = "*"
 
 Plugin.config = function()
-	require('toggleterm').setup()
+	require("toggleterm").setup()
 end
 
 return Plugin

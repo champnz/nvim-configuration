@@ -1,4 +1,4 @@
-local Plugin = {'ellisonleao/gruvbox.nvim'}
+local Plugin = { "ellisonleao/gruvbox.nvim" }
 
 Plugin.priority = 1000
 

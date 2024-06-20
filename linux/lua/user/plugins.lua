@@ -15,7 +15,7 @@ end
 
 function lazy.setup(plugins)
 	-- You can "comment out" the line below after lazy.nvim is installed
-	lazy.install(lazy.path)
+	-- lazy.install(lazy.path)
 
 	vim.opt.rtp:prepend(lazy.path)
 
