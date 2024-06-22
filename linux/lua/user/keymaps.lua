@@ -1,8 +1,7 @@
 vim.keymap.set("n", "<F2>", require("nvim-tree.api").tree.toggle)
 vim.keymap.set("n", "<C-o>", "<cmd>OverseerToggle<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-r>", "<cmd>OverseerRun<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-t>", "<cmd>ToggleTerm<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-l>", "<cmd>OverseerLoadBundle<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-t>", "<cmd>ToggleTerm<CR>", { noremap = true, silent = true })
 
 if vim.g.neovide then
 	vim.keymap.set("n", "<F11>", function()
