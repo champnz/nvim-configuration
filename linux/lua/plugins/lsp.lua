@@ -22,8 +22,8 @@ NvimCmp.config = function()
 			end,
 		},
 		window = {
-			completion = cmp.config.window.bordered(),
-			documentation = cmp.config.window.bordered(),
+			-- completion = cmp.config.window.bordered(),
+			-- documentation = cmp.config.window.bordered(),
 		},
 		mapping = cmp.mapping.preset.insert({
 			["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -55,6 +55,16 @@ NvimCmp.config = function()
 			}),
 		},
 	})
+
+	-- Set up lspconfig.
+	local capabilities = require("cmp_nvim_lsp").default_capabilities()
+	local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
+	for _, ls in ipairs(language_servers) do
+		require("lspconfig")[ls].setup({
+			capabilities = capabilities,
+			-- you can add other fields for setting up lsp server in this table
+		})
+	end
 end
 
 local NvimLspConfig = { "neovim/nvim-lspconfig" }
