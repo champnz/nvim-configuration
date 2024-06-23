@@ -8,4 +8,7 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
 	end
 })
 
+
+vim.lsp.inlay_hint.enable(true)
+
 vim.cmd("colorscheme gruvbox")
