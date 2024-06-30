@@ -84,7 +84,6 @@ local NvimLspConfig = { "neovim/nvim-lspconfig" }
 NvimLspConfig.config = function()
 	local lspconfig = require("lspconfig")
 	lspconfig.clangd.setup({})
-	lspconfig.lua_ls.setup({})
 end
 
 return { CmpNvimLsp, LspKind, LuaSnip, NvimCmp, NvimLspConfig }
