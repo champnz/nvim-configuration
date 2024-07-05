@@ -1,13 +1,11 @@
-local Plugin = { "nvim-tree/nvim-tree.lua" }
+local Plugin = { "akinsho/bufferline.nvim" }
 
 Plugin.dependencies = { "nvim-tree/nvim-web-devicons" }
 
 Plugin.version = "*"
 
-Plugin.lazy = false
-
 Plugin.config = function()
-	require("nvim-tree").setup()
+	require("bufferline").setup()
 end
 
 return Plugin

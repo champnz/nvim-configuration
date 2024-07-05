@@ -1,7 +1,7 @@
-local Plugin = {'stevearc/overseer.nvim'}
+local Plugin = { "stevearc/overseer.nvim" }
 
 Plugin.config = function()
-	require('overseer').setup()
+	require("overseer").setup()
 end
 
 Plugin.opts = {}
