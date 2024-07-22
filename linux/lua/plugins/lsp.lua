@@ -66,16 +66,6 @@ NvimCmp.config = function()
 			},
 		},
 	})
-
-	-- Set up lspconfig.
-	local capabilities = require("cmp_nvim_lsp").default_capabilities()
-	local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
-	for _, ls in ipairs(language_servers) do
-		require("lspconfig")[ls].setup({
-			capabilities = capabilities,
-			-- you can add other fields for setting up lsp server in this table
-		})
-	end
 end
 
 local NvimLspConfig = { "neovim/nvim-lspconfig" }
@@ -84,6 +74,15 @@ NvimLspConfig.config = function()
 	local lspconfig = require("lspconfig")
 	lspconfig.clangd.setup({})
 	lspconfig.lua_ls.setup({})
+
+	-- Set up lspconfig.
+	local capabilities = require("cmp_nvim_lsp").default_capabilities()
+	local language_servers = lspconfig.util.available_servers()
+	for _, ls in ipairs(language_servers) do
+		lspconfig[ls].setup({
+			capabilities = capabilities,
+		})
+	end
 end
 
 return { CmpNvimLsp, LspKind, LuaSnip, NvimCmp, NvimLspConfig }
