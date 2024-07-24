@@ -7,6 +7,7 @@ vim.g.maplocalleader = ";"
 vim.opt.termguicolors = true
 
 vim.wo.wrap = false
+vim.wo.number = true
 
 if vim.g.neovide then
 	vim.o.guifont = "JetBrainsMono_Nerd_Font:h11"
