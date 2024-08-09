@@ -72,17 +72,20 @@ local NvimLspConfig = { "neovim/nvim-lspconfig" }
 
 NvimLspConfig.config = function()
 	local lspconfig = require("lspconfig")
-	lspconfig.clangd.setup({})
-	lspconfig.lua_ls.setup({})
-
-	-- Set up lspconfig.
 	local capabilities = require("cmp_nvim_lsp").default_capabilities()
-	local language_servers = lspconfig.util.available_servers()
-	for _, ls in ipairs(language_servers) do
-		lspconfig[ls].setup({
-			capabilities = capabilities,
-		})
-	end
+
+	-- ufo requires this
+	capabilities.textDocument.foldingRange = {
+		dynamicRegistration = false,
+		lineFoldingOnly = true,
+	}
+
+	lspconfig.clangd.setup({
+		capabilities = capabilities,
+	})
+	lspconfig.lua_ls.setup({
+		capabilities = capabilities,
+	})
 end
 
 return { CmpNvimLsp, LspKind, LuaSnip, NvimCmp, NvimLspConfig }
