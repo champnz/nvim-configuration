@@ -7,3 +7,4 @@ vim.g.maplocalleader = "'"
 vim.opt.termguicolors = true
 
 vim.wo.wrap = false
+vim.wo.number = true
