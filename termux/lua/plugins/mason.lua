@@ -7,9 +7,7 @@ end
 local MasonLspConfig = { "williamboman/mason-lspconfig.nvim" }
 
 MasonLspConfig.config = function()
-	require("mason-lspconfig").setup({
-		ensure_installed = { "lua_ls" },
-	})
+	require("mason-lspconfig").setup({})
 end
 
 return { Mason, MasonLspConfig }

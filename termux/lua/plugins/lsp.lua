@@ -54,37 +54,80 @@ NvimCmp.config = function()
 				end,
 			}),
 		},
-		-- sorting = {
-		-- 	comparators = {
-		-- 		cmp.config.compare.offset,
-		-- 		cmp.config.compare.exact,
-		-- 		cmp.config.compare.recently_used,
-		-- 		require("clangd_extensions.cmp_scores"),
-		-- 		cmp.config.compare.kind,
-		-- 		cmp.config.compare.sort_text,
-		-- 		cmp.config.compare.length,
-		-- 		cmp.config.compare.order,
-		-- 	},
-		-- },
+		sorting = {
+			comparators = {
+				cmp.config.compare.offset,
+				cmp.config.compare.exact,
+				cmp.config.compare.recently_used,
+				cmp.config.compare.kind,
+				cmp.config.compare.sort_text,
+				cmp.config.compare.length,
+				cmp.config.compare.order,
+			},
+		},
 	})
-
-	-- Set up lspconfig.
-	local capabilities = require("cmp_nvim_lsp").default_capabilities()
-	local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
-	for _, ls in ipairs(language_servers) do
-		require("lspconfig")[ls].setup({
-			capabilities = capabilities,
-			-- you can add other fields for setting up lsp server in this table
-		})
-	end
 end
 
 local NvimLspConfig = { "neovim/nvim-lspconfig" }
 
 NvimLspConfig.config = function()
 	local lspconfig = require("lspconfig")
-	lspconfig.clangd.setup({})
-	lspconfig.lua_ls.setup({})
+	local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+	-- ufo needs this
+	capabilities.textDocument.foldingRange = {
+		dynamicRegistration = false,
+		lineFoldingOnly = true,
+	}
+
+	lspconfig.clangd.setup({
+		capabilities = capabilities,
+	})
+	lspconfig.gopls.setup({
+		capabilities = capabilities,
+		settings = {
+			gopls = {
+				gofumpt = true,
+				codelenses = {
+					gc_details = false,
+					generate = true,
+					regenerate_cgo = true,
+					run_govulncheck = true,
+					test = true,
+					tidy = true,
+					upgrade_dependency = true,
+					vendor = true,
+				},
+				hints = {
+					assignVariableTypes = true,
+					compositeLiteralFields = true,
+					compositeLiteralTypes = true,
+					constantValues = true,
+					functionTypeParameters = true,
+					parameterNames = true,
+					rangeVariableTypes = true,
+				},
+				analyses = {
+					fieldalignment = true,
+					nilness = true,
+					unusedparams = true,
+					unusedwrite = true,
+					useany = true,
+				},
+				usePlaceholders = true,
+				completeUnimported = true,
+				staticcheck = true,
+				directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
+				semanticTokens = true,
+			}
+		}
+	})
+	lspconfig.pylsp.setup({
+		capabilities = capabilities,
+	})
+	--lspconfig.pyright.setup({
+	--	capabilities = capabilities,
+	--})
 end
 
 return { CmpNvimLsp, LspKind, LuaSnip, NvimCmp, NvimLspConfig }
