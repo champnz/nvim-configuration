@@ -28,6 +28,37 @@ vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 
+-- switch between panes
+vim.keymap.set("n", "<leader>W", ":wincmd k<CR>", { silent = true })
+vim.keymap.set("n", "<leader>S", ":wincmd j<CR>", { silent = true })
+vim.keymap.set("n", "<leader>A", ":wincmd h<CR>", { silent = true })
+vim.keymap.set("n", "<leader>D", ":wincmd l<CR>", { silent = true })
+
+-- move line around
+vim.keymap.set("v", "W", ":m '<-2<CR>gv=gv", { silent = true })
+vim.keymap.set("v", "S", ":m '>+1<CR>gv=gv", { silent = true })
+
+-- erase search
+vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
+
+-- diagnostics
+vim.keymap.set("n", "<leader>i", function()
+  -- If we find a floating window, close it.
+  local found_float = false
+  for _, win in ipairs(vim.api.nvim_list_wins()) do
+    if vim.api.nvim_win_get_config(win).relative ~= "" then
+      vim.api.nvim_win_close(win, true)
+      found_float = true
+    end
+  end
+
+  if found_float then
+    return
+  end
+
+  vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
+end, { noremap = true, silent = true, desc = "Toggle Diagnostics" })
+
 -- clipboard
 vim.keymap.set("v", "<D-c>", '"+y') -- Copy
 vim.keymap.set("n", "<D-v>", '"+P') -- Paste normal mode
