@@ -29,13 +29,13 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 
 -- switch between panes
-vim.keymap.set("n", "<leader>W", ":wincmd k<CR>", { silent = true })
+vim.keymap.set("n", "<leader>D", ":wincmd k<CR>", { silent = true })
 vim.keymap.set("n", "<leader>S", ":wincmd j<CR>", { silent = true })
 vim.keymap.set("n", "<leader>A", ":wincmd h<CR>", { silent = true })
-vim.keymap.set("n", "<leader>D", ":wincmd l<CR>", { silent = true })
+vim.keymap.set("n", "<leader>W", ":wincmd l<CR>", { silent = true })
 
 -- move line around
-vim.keymap.set("v", "W", ":m '<-2<CR>gv=gv", { silent = true })
+vim.keymap.set("v", "D", ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "S", ":m '>+1<CR>gv=gv", { silent = true })
 
 -- erase search
