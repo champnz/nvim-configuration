@@ -34,12 +34,17 @@ vim.keymap.set("n", "<leader>S", ":wincmd j<CR>", { silent = true })
 vim.keymap.set("n", "<leader>A", ":wincmd h<CR>", { silent = true })
 vim.keymap.set("n", "<leader>W", ":wincmd l<CR>", { silent = true })
 
--- move line around
+-- move selected line up/down
 vim.keymap.set("v", "D", ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "S", ":m '>+1<CR>gv=gv", { silent = true })
 
--- erase search
+-- erase search results
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
+
+-- replace
+vim.keymap.set("n", "<leader>rp", ":%s/<c-r><c-w>/")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
 
 -- diagnostics
 vim.keymap.set("n", "<leader>i", function()
@@ -60,12 +65,13 @@ vim.keymap.set("n", "<leader>i", function()
 end, { noremap = true, silent = true, desc = "Toggle Diagnostics" })
 
 -- clipboard
-vim.keymap.set("v", "<D-c>", '"+y') -- Copy
-vim.keymap.set("n", "<D-v>", '"+P') -- Paste normal mode
-vim.keymap.set("v", "<D-v>", '"+P') -- Paste visual mode
-vim.keymap.set("c", "<D-v>", "<C-R>+") -- Paste command mode
+vim.keymap.set("v", "<D-c>", '"+y')         -- Copy
+vim.keymap.set("n", "<D-v>", '"+P')         -- Paste normal mode
+vim.keymap.set("v", "<D-v>", '"+P')         -- Paste visual mode
+vim.keymap.set("c", "<D-v>", "<C-R>+")      -- Paste command mode
 vim.keymap.set("i", "<D-v>", '<ESC>l"+Pli') -- Paste insert mode
 
+-- neovide
 if vim.g.neovide then
 	vim.keymap.set("n", "<F11>", function()
 		vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
