@@ -41,7 +41,7 @@ vim.keymap.set("v", "S", ":m '>+1<CR>gv=gv", { silent = true })
 -- erase search results
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 
--- replace
+-- find & replace
 vim.keymap.set("n", "<leader>rp", ":%s/<c-r><c-w>/")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
