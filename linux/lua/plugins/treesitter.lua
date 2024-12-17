@@ -6,9 +6,9 @@ Plugin.config = function()
 	require("nvim-treesitter.configs").setup({
 		ensure_installed = { "c", "cpp", "rust", "python" },
 		auto_install = false,
-		highlight = { enabled = true, additional_vim_regex_highlighting = false },
-		indent = { enabled = false },
-		autotag = { enabled = false },
+		highlight = { enable = true, additional_vim_regex_highlighting = false },
+		indent = { enable = false },
+		autotag = { enable = false },
 		incremental_selection = {
 			enable = true,
 			keymaps = {
