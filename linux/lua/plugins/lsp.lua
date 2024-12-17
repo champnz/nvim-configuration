@@ -86,6 +86,9 @@ NvimLspConfig.config = function()
 	lspconfig.lua_ls.setup({
 		capabilities = capabilities,
 	})
+	lspconfig.pyright.setup({
+		capabilities = capabilities,
+	})
 end
 
 return { CmpNvimLsp, LspKind, LuaSnip, NvimCmp, NvimLspConfig }
