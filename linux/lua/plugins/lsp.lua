@@ -86,8 +86,17 @@ NvimLspConfig.config = function()
 	lspconfig.lua_ls.setup({
 		capabilities = capabilities,
 	})
-	lspconfig.pyright.setup({
+	lspconfig.pylsp.setup({
 		capabilities = capabilities,
+		settings = {
+			pylsp = {
+				plugins = {
+					pycodestyle = {
+						maxLineLength = 200,
+					}
+				}
+			}
+		}
 	})
 end
 
