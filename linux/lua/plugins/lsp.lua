@@ -90,7 +90,11 @@ NvimLspConfig.config = function()
 				plugins = {
 					pycodestyle = {
 						maxLineLength = 200,
-					}
+					},
+					jedi_completion = {
+						enabled = true,
+						include_params = true,
+					},
 				}
 			}
 		}
