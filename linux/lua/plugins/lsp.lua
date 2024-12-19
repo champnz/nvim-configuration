@@ -83,9 +83,6 @@ NvimLspConfig.config = function()
 	lspconfig.clangd.setup({
 		capabilities = capabilities,
 	})
-	lspconfig.lua_ls.setup({
-		capabilities = capabilities,
-	})
 	lspconfig.pylsp.setup({
 		capabilities = capabilities,
 		settings = {
