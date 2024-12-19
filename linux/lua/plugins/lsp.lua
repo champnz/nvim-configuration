@@ -97,13 +97,11 @@ NvimLspConfig.config = function()
 		settings = {
 			pylsp = {
 				plugins = {
-					-- formatter options
-					black = {
-						enabled = true,
-					},
-					-- linter options
+					-- formatter/linter
 					ruff = {
 						enabled = true,
+						formatEnabled = true,
+						lineLength = 88,
 					},
 					-- type checker
 					pylsp_mypy = {
@@ -121,6 +119,9 @@ NvimLspConfig.config = function()
 						enabled = true,
 						fuzzy = true,
 						include_params = true,
+					},
+					isort = {
+						enabled = true,
 					},
 				}
 			}
