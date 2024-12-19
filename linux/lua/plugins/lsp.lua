@@ -74,6 +74,15 @@ NvimLspConfig.config = function()
 	local lspconfig = require("lspconfig")
 	local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+	-- decide which python executable to use for mypy
+	local py_path = nil
+	local venv_path = os.getenv("VIRTUAL_ENV")
+	if venv_path ~= nil then
+		py_path = venv_path .. "/bin/python3"
+	else
+		py_path = vim.g.python3_host_prog
+	end
+
 	-- ufo requires this
 	capabilities.textDocument.foldingRange = {
 		dynamicRegistration = false,
@@ -88,11 +97,29 @@ NvimLspConfig.config = function()
 		settings = {
 			pylsp = {
 				plugins = {
-					pycodestyle = {
-						maxLineLength = 200,
+					-- formatter options
+					black = {
+						enabled = true,
 					},
+					-- linter options
+					ruff = {
+						enabled = true,
+					},
+					-- type checker
+					pylsp_mypy = {
+						enabled = false,
+						overrides = {
+							"--python-executable",
+							py_path,
+							true,
+						},
+						report_progress = true,
+						live_mode = false,
+					},
+					-- auto-completion options
 					jedi_completion = {
 						enabled = true,
+						fuzzy = true,
 						include_params = true,
 					},
 				}
