@@ -100,6 +100,7 @@ NvimLspConfig.config = function()
 					-- formatter/linter
 					ruff = {
 						enabled = true,
+						extendSelect = { "I" },
 						formatEnabled = true,
 						lineLength = 88,
 					},
@@ -119,9 +120,6 @@ NvimLspConfig.config = function()
 						enabled = true,
 						fuzzy = true,
 						include_params = true,
-					},
-					isort = {
-						enabled = true,
 					},
 				}
 			}
