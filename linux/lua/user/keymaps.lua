@@ -39,7 +39,7 @@ vim.keymap.set("v", "D", ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "S", ":m '>+1<CR>gv=gv", { silent = true })
 
 -- erase search results
-vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>". { silent = true })
+vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>", { silent = true })
 
 -- clipboard
 vim.keymap.set("v", "<D-c>", '"+y')         -- Copy
