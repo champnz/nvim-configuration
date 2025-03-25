@@ -39,30 +39,7 @@ vim.keymap.set("v", "D", ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "S", ":m '>+1<CR>gv=gv", { silent = true })
 
 -- erase search results
-vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
-
--- find & replace
-vim.keymap.set("n", "<leader>rp", ":%s/<c-r><c-w>/")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
-
--- diagnostics
-vim.keymap.set("n", "<leader>i", function()
-  -- If we find a floating window, close it.
-  local found_float = false
-  for _, win in ipairs(vim.api.nvim_list_wins()) do
-    if vim.api.nvim_win_get_config(win).relative ~= "" then
-      vim.api.nvim_win_close(win, true)
-      found_float = true
-    end
-  end
-
-  if found_float then
-    return
-  end
-
-  vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
-end, { noremap = true, silent = true, desc = "Toggle Diagnostics" })
+vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>". { silent = true })
 
 -- clipboard
 vim.keymap.set("v", "<D-c>", '"+y')         -- Copy
