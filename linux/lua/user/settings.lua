@@ -5,6 +5,7 @@ vim.g.mapleader = ";"
 vim.g.maplocalleader = ";"
 
 vim.opt.termguicolors = true
+vim.opt.showmode = false
 
 vim.wo.wrap = false
 vim.wo.number = true
