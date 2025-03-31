@@ -1,16 +1,21 @@
-local Plugin = { "shellRaining/hlchunk.nvim" }
+local Plugin = { "lukas-reineke/indent-blankline.nvim" }
 
-Plugin.event = { "BufReadPre", "BufNewFile" }
+Plugin.main = "ibl"
+
+Plugin.opts = {}
 
 Plugin.config = function()
-	require("hlchunk").setup({
+	require("ibl").setup({
+		exclude = {
+			filetypes = { "help", "dashboard", "packer", "NvimTree", "Trouble", "TelescopePrompt", "Float" },
+			buftypes = { "terminal", "nofile", "telescope" },
+		},
 		indent = {
-			enable = true,
-			priority = 10,
-			style = { vim.api.nvim_get_hl(0, { name = "Whitespace" }) },
-			use_treesitter = false,
-			chars = { "│" },
-			ahead_lines = 5,
+			char = "│",
+		},
+		scope = {
+			enabled = false,
+			show_start =false,
 		},
 	})
 end
