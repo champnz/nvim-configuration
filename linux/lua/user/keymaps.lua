@@ -47,10 +47,3 @@ vim.keymap.set("n", "<D-v>", '"+P')         -- Paste normal mode
 vim.keymap.set("v", "<D-v>", '"+P')         -- Paste visual mode
 vim.keymap.set("c", "<D-v>", "<C-R>+")      -- Paste command mode
 vim.keymap.set("i", "<D-v>", '<ESC>l"+Pli') -- Paste insert mode
-
--- neovide
-if vim.g.neovide then
-	vim.keymap.set("n", "<F11>", function()
-		vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
-	end, { noremap = true, silent = true })
-end
