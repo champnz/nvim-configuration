@@ -84,7 +84,7 @@ NvimLspConfig.config = function()
 					},
 					-- type checker
 					pylsp_mypy = {
-						enabled = false,
+						enabled = true,
 						overrides = {
 							"--python-executable",
 							py_path,

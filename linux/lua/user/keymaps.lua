@@ -27,6 +27,12 @@ vim.keymap.set("n", "<leader>p", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+vim.keymap.set("n", "<leader>dd", builtin.diagnostics, {})
+
+-- diagnostics
+vim.keymap.set("n", "<leader>do", vim.diagnostic.open_float, {})
+vim.keymap.set("n", "<leader>d[", vim.diagnostic.goto_prev, {})
+vim.keymap.set("n", "<leader>d]", vim.diagnostic.goto_next, {})
 
 -- switch between panes
 vim.keymap.set("n", "<leader>D", ":wincmd k<CR>", { silent = true })
