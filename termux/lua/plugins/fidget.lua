@@ -7,6 +7,13 @@ Plugin.config = function()
 		notification = {
 			window = {
 				winblend = 0,
+				align = "bottom",
+				relative = "win",
+			},
+		},
+		integration = {
+			["nvim-tree"] = {
+				enable = true,
 			},
 		},
 	})
