@@ -6,7 +6,10 @@ vim.keymap.set("n", "<C-o>", "<cmd>OverseerToggle<CR>", { noremap = true, silent
 vim.keymap.set("n", "<C-l>", "<cmd>OverseerLoadBundle<CR>", { noremap = true, silent = true })
 
 -- toggleterm
-vim.keymap.set("n", "<C-t>", "<cmd>ToggleTerm<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>tf", "<cmd>ToggleTerm<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>tt", "<cmd>ToggleTerm direction=tab<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>tv", "<cmd>ToggleTerm direction=vertical<CR>", { noremap = true, silent = true })
 
 -- buffer
 vim.keymap.set("n", "<leader>w", "<cmd>BufferLineCycleNext<CR>", {}) --"  cycle next buffer"
