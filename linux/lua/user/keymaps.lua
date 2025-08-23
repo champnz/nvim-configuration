@@ -50,6 +50,9 @@ vim.keymap.set("v", "S", ":m '>+1<CR>gv=gv", { silent = true })
 -- erase search results
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>", { silent = true })
 
+-- ctrl + a
+vim.keymap.set("n", "<C-a>", "gg<S-v>G")
+
 -- clipboard
 vim.keymap.set("v", "<D-c>", '"+y')         -- Copy
 vim.keymap.set("n", "<D-v>", '"+P')         -- Paste normal mode
