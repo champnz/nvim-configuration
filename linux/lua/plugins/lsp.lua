@@ -19,7 +19,9 @@ local BlinkCmp = {
 		-- C-k: Toggle signature help (if signature.enabled = true)
 		--
 		-- See :h blink-cmp-config-keymap for defining your own keymap
-		keymap = { preset = 'enter' },
+		keymap = {
+			preset = 'enter',
+		},
 
 		appearance = {
 			-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -49,7 +51,6 @@ local BlinkCmp = {
 local NvimLspConfig = { "neovim/nvim-lspconfig" }
 
 NvimLspConfig.config = function()
-	local lspconfig = require("lspconfig")
 	local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 	-- decide which python executable to use for mypy
@@ -67,10 +68,10 @@ NvimLspConfig.config = function()
 		lineFoldingOnly = true,
 	}
 
-	lspconfig.clangd.setup({
+	vim.lsp.config['clangd'] = {
 		capabilities = capabilities,
-	})
-	lspconfig.pylsp.setup({
+	}
+	vim.lsp.config['pylsp'] = {
 		capabilities = capabilities,
 		settings = {
 			pylsp = {
@@ -102,7 +103,10 @@ NvimLspConfig.config = function()
 				}
 			}
 		}
-	})
+	}
+
+	vim.lsp.enable('clangd')
+	vim.lsp.enable('pylsp')
 end
 
 return { BlinkCmp, NvimLspConfig }
