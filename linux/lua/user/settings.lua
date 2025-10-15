@@ -6,6 +6,7 @@ vim.g.maplocalleader = ";"
 
 vim.opt.termguicolors = true
 vim.opt.showmode = false
+vim.opt.relativenumber = true
 
 vim.wo.wrap = false
 vim.wo.number = true
